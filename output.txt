@@ -1,0 +1,553 @@
+PS D:\SolidityPractice> cd fibonacci
+PS D:\SolidityPractice\fibonacci> truffle unbox pet-shop
+Downloading...
+Unpacking...
+Setting up...
+Unbox successful. Sweet!
+
+Commands:
+
+  Compile:        truffle compile
+  Migrate:        truffle migrate
+  Test contracts: truffle test
+  Run dev server: npm run dev
+PS D:\SolidityPractice\fibonacci> truffle create contract Fibonacci
+PS D:\SolidityPractice\fibonacci> truffle create migration Fibonacci
+PS D:\SolidityPractice\fibonacci> truffle compile
+Compiling .\contracts\Fibonacci.sol...
+Compiling .\contracts\Migrations.sol...
+Writing artifacts to .\build\contracts
+
+PS D:\SolidityPractice\fibonacci> truffle migrate
+Using network 'development'.
+
+Running migration: 1_initial_migration.js
+  Deploying Migrations...
+  ... 0xc69e209724eb31523ff3513f4e7d05e8e44e4b2a9235181e00d82194dca20b57
+  Migrations: 0x6a6c33742769ed666a76eec70b4e8af6e7f64726
+Saving successful migration to network...
+  ... 0x86a2736089822a4b52a4981eeec6878055a37ceeeee053c6816e97ce9f8d5eba
+Saving artifacts...
+Running migration: 1540213937_fibonacci.js
+  Deploying Fibonacci...
+  ... 0x6f465274e0b2ae243ff541d21882d0afbfd00e0a9553ffc40aa459931c4d6733
+  Fibonacci: 0x156a6899b99e95df6a32353121bddc3a459334d4
+Saving successful migration to network...
+  ... 0xa81fc51a1ab5c604c859cd67abbba374ee960aa3e11d16075bb2bd7e85775f21
+Saving artifacts...
+PS D:\SolidityPractice\fibonacci> truffle console
+truffle(development)> Fibonacci.deployed().then(function(instance){return instance.generateFib(10)});
+{ tx: '0xcc23f348eb17433de1de317fc56c21934e70719ea28c4e43e145a3a7ac72fef3',
+  receipt:
+   { transactionHash: '0xcc23f348eb17433de1de317fc56c21934e70719ea28c4e43e145a3a7ac72fef3',
+     transactionIndex: 0,
+     blockHash: '0xfdf7a4e2e4f8c5aa189cbad006d43141b83700d509cc450c8d508e2651da18f5',
+     blockNumber: 5,
+     gasUsed: 298373,
+     cumulativeGasUsed: 298373,
+     contractAddress: null,
+     logs: [],
+     status: '0x1',
+     logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000' },
+  logs: [] }
+truffle(development)>
+(To exit, press ^C again or type .exit)
+truffle(development)>
+PS D:\SolidityPractice\fibonacci> truffle console
+truffle(development)> debug tx:0xcc23f348eb17433de1de317fc56c21934e70719ea28c4e43e145a3a7ac72fef3
+Compiling .\contracts\Fibonacci.sol...
+Compiling .\contracts\Migrations.sol...
+
+Gathering transaction data...
+
+Error: Unknown transaction 0x7830e60b2df2a4eda9f840699deaeace7502b30424aba68adc01621029
+    at C:\Users\15 ay\AppData\Roaming\npm\node_modules\truffle\build\webpack:\packages\truffle-debugger\dist\debugger.js:4828:1
+    at C:\Users\15 ay\AppData\Roaming\npm\node_modules\truffle\build\webpack:\packages\truffle-provider\wrapper.js:134:1
+    at XMLHttpRequest.request.onreadystatechange (C:\Users\15 ay\AppData\Roaming\npm\node_modules\truffle\build\webpack:\~\web3\lib\web3\httpprovider.js:128:1)
+    at XMLHttpRequestEventTarget.dispatchEvent (C:\Users\15 ay\AppData\Roaming\npm\node_modules\truffle\build\webpack:\~\xhr2\lib\xhr2.js:64:1)
+    at XMLHttpRequest._setReadyState (C:\Users\15 ay\AppData\Roaming\npm\node_modules\truffle\build\webpack:\~\xhr2\lib\xhr2.js:354:1)
+    at XMLHttpRequest._onHttpResponseEnd (C:\Users\15 ay\AppData\Roaming\npm\node_modules\truffle\build\webpack:\~\xhr2\lib\xhr2.js:509:1)
+    at IncomingMessage.<anonymous> (C:\Users\15 ay\AppData\Roaming\npm\node_modules\truffle\build\webpack:\~\xhr2\lib\xhr2.js:469:1)
+    at emitNone (events.js:111:20)
+    at IncomingMessage.emit (events.js:208:7)
+    at endReadableNT (_stream_readable.js:1064:12)
+    at _combinedTickCallback (internal/process/next_tick.js:139:11)
+    at process._tickDomainCallback (internal/process/next_tick.js:219:9)
+truffle(development)> TypeError: Cannot read property 'view' of undefined
+    at printAddressesAffected (C:\Users\15 ay\AppData\Roaming\npm\node_modules\truffle\build\webpack:\packages\truffle-core\lib\commands\debug.js:102:1)
+    at C:\Users\15 ay\AppData\Roaming\npm\node_modules\truffle\build\webpack:\packages\truffle-core\lib\commands\debug.js:442:1
+    at <anonymous>
+    at process._tickDomainCallback (internal/process/next_tick.js:229:7)
+truffle(development)> debug 0xcc23f348eb17433de1de317fc56c21934e70719ea28c4e43e145a3a7ac72fef3
+Compiling .\contracts\Fibonacci.sol...
+Compiling .\contracts\Migrations.sol...
+
+Gathering transaction data...
+
+Addresses affected:
+ 0x156a6899b99e95df6a32353121bddc3a459334d4 - Fibonacci
+
+Commands:
+(enter) last command entered (step next)
+(o) step over, (i) step into, (u) step out, (n) step next
+(;) step instruction, (p) print instruction, (h) print this help, (q) quit
+(b) toggle breakpoint, (c) continue until breakpoint
+(+) add watch expression (`+:<expr>`), (-) remove watch expression (-:<expr>)
+(?) list existing watch expressions
+(v) print variables and values, (:) evaluate expression - see `v`
+
+
+Fibonacci.sol:
+
+2:
+3:
+4: contract Fibonacci {
+   ^^^^^^^^^^^^^^^^^^^^
+
+h
+
+Commands:
+(enter) last command entered (step next)
+(o) step over, (i) step into, (u) step out, (n) step next
+(;) step instruction, (p) print instruction, (h) print this help, (q) quit
+(b) toggle breakpoint, (c) continue until breakpoint
+(+) add watch expression (`+:<expr>`), (-) remove watch expression (-:<expr>)
+(?) list existing watch expressions
+(v) print variables and values, (:) evaluate expression - see `v`
+
+debug(development:0xcc23f348...)> n
+
+Fibonacci.sol:
+
+4: contract Fibonacci {
+5:   uint [] fibseries;
+6:   function generateFib(uint n) public {
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+debug(development:0xcc23f348...)> v
+
+  fibseries: []
+
+debug(development:0xcc23f348...)>
+
+Fibonacci.sol:
+
+6:   function generateFib(uint n) public {
+7:
+8:      fibseries.push(1);
+        ^^^^^^^^^
+
+debug(development:0xcc23f348...)>
+
+Fibonacci.sol:
+
+6:   function generateFib(uint n) public {
+7:
+8:      fibseries.push(1);
+                       ^
+
+debug(development:0xcc23f348...)> v
+
+          i: 0
+          n: 10
+  fibseries: []
+
+debug(development:0xcc23f348...)>
+
+Fibonacci.sol:
+
+6:   function generateFib(uint n) public {
+7:
+8:      fibseries.push(1);
+        ^^^^^^^^^^^^^^^^^
+
+debug(development:0xcc23f348...)> +:i
+0
+
+debug(development:0xcc23f348...)> +:n
+10
+
+debug(development:0xcc23f348...)>
+
+Fibonacci.sol:
+
+7:
+8:      fibseries.push(1);
+9:      fibseries.push(1);
+        ^^^^^^^^^
+
+:i
+  0
+
+:n
+  10
+
+debug(development:0xcc23f348...)> +:{ i, fibseries }
+{ i: 0, fibseries: [ 1 ] }
+
+debug(development:0xcc23f348...)>
+
+Fibonacci.sol:
+
+7:
+8:      fibseries.push(1);
+9:      fibseries.push(1);
+                       ^
+
+:i
+  0
+
+:n
+  10
+
+:{ i, fibseries }
+  { i: 0, fibseries: [ 1 ] }
+
+debug(development:0xcc23f348...)> o
+
+Fibonacci.sol:
+
+ 8:      fibseries.push(1);
+ 9:      fibseries.push(1);
+10:       for (uint i=2; i < n ; i++) {
+                      ^
+
+:i
+  0
+
+:n
+  10
+
+:{ i, fibseries }
+  { i: 0, fibseries: [ 1, 1 ] }
+
+debug(development:0xcc23f348...)> o
+
+Fibonacci.sol:
+
+ 9:      fibseries.push(1);
+10:       for (uint i=2; i < n ; i++) {
+11:       fibseries.push(fibseries[i-1] + fibseries[i-2]);
+          ^^^^^^^^^
+
+:i
+  2
+
+:n
+  10
+
+:{ i, fibseries }
+  { i: 2, fibseries: [ 1, 1 ] }
+
+debug(development:0xcc23f348...)>
+
+Fibonacci.sol:
+
+ 8:      fibseries.push(1);
+ 9:      fibseries.push(1);
+10:       for (uint i=2; i < n ; i++) {
+                                 ^^^
+
+:i
+  2
+
+:n
+  10
+
+:{ i, fibseries }
+  { i: 2, fibseries: [ 1, 1, 2 ] }
+
+debug(development:0xcc23f348...)>
+
+Fibonacci.sol:
+
+ 9:      fibseries.push(1);
+10:       for (uint i=2; i < n ; i++) {
+11:       fibseries.push(fibseries[i-1] + fibseries[i-2]);
+          ^^^^^^^^^
+
+:i
+  3
+
+:n
+  10
+
+:{ i, fibseries }
+  { i: 3, fibseries: [ 1, 1, 2 ] }
+
+debug(development:0xcc23f348...)>
+
+Fibonacci.sol:
+
+ 8:      fibseries.push(1);
+ 9:      fibseries.push(1);
+10:       for (uint i=2; i < n ; i++) {
+                                 ^^^
+
+:i
+  3
+
+:n
+  10
+
+:{ i, fibseries }
+  { i: 3,
+   fibseries: [ 1, 1, 2, 3 ] }
+
+debug(development:0xcc23f348...)>
+
+Fibonacci.sol:
+
+ 9:      fibseries.push(1);
+10:       for (uint i=2; i < n ; i++) {
+11:       fibseries.push(fibseries[i-1] + fibseries[i-2]);
+          ^^^^^^^^^
+
+:i
+  4
+
+:n
+  10
+
+:{ i, fibseries }
+  { i: 4,
+   fibseries: [ 1, 1, 2, 3 ] }
+
+debug(development:0xcc23f348...)>
+
+Fibonacci.sol:
+
+ 8:      fibseries.push(1);
+ 9:      fibseries.push(1);
+10:       for (uint i=2; i < n ; i++) {
+                                 ^^^
+
+:i
+  4
+
+:n
+  10
+
+:{ i, fibseries }
+  { i: 4,
+   fibseries: [ 1, 1, 2, 3, 5 ] }
+
+debug(development:0xcc23f348...)>
+
+Fibonacci.sol:
+
+ 9:      fibseries.push(1);
+10:       for (uint i=2; i < n ; i++) {
+11:       fibseries.push(fibseries[i-1] + fibseries[i-2]);
+          ^^^^^^^^^
+
+:i
+  5
+
+:n
+  10
+
+:{ i, fibseries }
+  { i: 5,
+   fibseries: [ 1, 1, 2, 3, 5 ] }
+
+debug(development:0xcc23f348...)>
+
+Fibonacci.sol:
+
+ 8:      fibseries.push(1);
+ 9:      fibseries.push(1);
+10:       for (uint i=2; i < n ; i++) {
+                                 ^^^
+
+:i
+  5
+
+:n
+  10
+
+:{ i, fibseries }
+  { i: 5,
+   fibseries: [ 1, 1, 2, 3, 5, 8 ] }
+
+debug(development:0xcc23f348...)>
+
+Fibonacci.sol:
+
+ 9:      fibseries.push(1);
+10:       for (uint i=2; i < n ; i++) {
+11:       fibseries.push(fibseries[i-1] + fibseries[i-2]);
+          ^^^^^^^^^
+
+:i
+  6
+
+:n
+  10
+
+:{ i, fibseries }
+  { i: 6,
+   fibseries: [ 1, 1, 2, 3, 5, 8 ] }
+
+debug(development:0xcc23f348...)>
+
+Fibonacci.sol:
+
+ 8:      fibseries.push(1);
+ 9:      fibseries.push(1);
+10:       for (uint i=2; i < n ; i++) {
+                                 ^^^
+
+:i
+  6
+
+:n
+  10
+
+:{ i, fibseries }
+  { i: 6,
+   fibseries: [ 1, 1, 2, 3, 5, 8, 13 ] }
+
+debug(development:0xcc23f348...)>
+
+Fibonacci.sol:
+
+ 9:      fibseries.push(1);
+10:       for (uint i=2; i < n ; i++) {
+11:       fibseries.push(fibseries[i-1] + fibseries[i-2]);
+          ^^^^^^^^^
+
+:i
+  7
+
+:n
+  10
+
+:{ i, fibseries }
+  { i: 7,
+   fibseries: [ 1, 1, 2, 3, 5, 8, 13 ] }
+
+debug(development:0xcc23f348...)>
+
+Fibonacci.sol:
+
+ 8:      fibseries.push(1);
+ 9:      fibseries.push(1);
+10:       for (uint i=2; i < n ; i++) {
+                                 ^^^
+
+:i
+  7
+
+:n
+  10
+
+:{ i, fibseries }
+  { i: 7,
+   fibseries: [ 1, 1, 2, 3, 5, 8, 13, 21 ] }
+
+debug(development:0xcc23f348...)>
+
+Fibonacci.sol:
+
+ 9:      fibseries.push(1);
+10:       for (uint i=2; i < n ; i++) {
+11:       fibseries.push(fibseries[i-1] + fibseries[i-2]);
+          ^^^^^^^^^
+
+:i
+  8
+
+:n
+  10
+
+:{ i, fibseries }
+  { i: 8,
+   fibseries: [ 1, 1, 2, 3, 5, 8, 13, 21 ] }
+
+debug(development:0xcc23f348...)>
+
+Fibonacci.sol:
+
+ 8:      fibseries.push(1);
+ 9:      fibseries.push(1);
+10:       for (uint i=2; i < n ; i++) {
+                                 ^^^
+
+:i
+  8
+
+:n
+  10
+
+:{ i, fibseries }
+  { i: 8,
+   fibseries: [ 1, 1, 2, 3, 5, 8, 13, 21, 34 ] }
+
+debug(development:0xcc23f348...)>
+
+Fibonacci.sol:
+
+ 9:      fibseries.push(1);
+10:       for (uint i=2; i < n ; i++) {
+11:       fibseries.push(fibseries[i-1] + fibseries[i-2]);
+          ^^^^^^^^^
+
+:i
+  9
+
+:n
+  10
+
+:{ i, fibseries }
+  { i: 9,
+   fibseries: [ 1, 1, 2, 3, 5, 8, 13, 21, 34 ] }
+
+debug(development:0xcc23f348...)>
+
+Fibonacci.sol:
+
+ 8:      fibseries.push(1);
+ 9:      fibseries.push(1);
+10:       for (uint i=2; i < n ; i++) {
+                                 ^^^
+
+:i
+  9
+
+:n
+  10
+
+:{ i, fibseries }
+  { i: 9,
+   fibseries: [ 1, 1, 2, 3, 5, 8, 13, 21, 34, 55 ] }
+
+debug(development:0xcc23f348...)>
+
+Fibonacci.sol:
+
+4: contract Fibonacci {
+5:   uint [] fibseries;
+6:   function generateFib(uint n) public {
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+:i
+  10
+
+:n
+  10
+
+:{ i, fibseries }
+  { i: 10,
+   fibseries: [ 1, 1, 2, 3, 5, 8, 13, 21, 34, 55 ] }
+
+debug(development:0xcc23f348...)>
+
+Transaction completed successfully.
+truffle(development)>
+(To exit, press ^C again or type .exit)
+truffle(development)>
+PS D:\SolidityPractice\fibonacci> Greeter.deployed().then(function(instance) { return instance.sayHello() }).then(function (value) {
+>>    // Now value contains the return value os the sayHello() function
+>>    console.log(value);
+>> })
